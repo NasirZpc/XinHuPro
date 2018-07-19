@@ -187,6 +187,9 @@ a {
 .fs22{
     font-size:0.293rem;
 }
+.fs24{
+    font-size:0.32rem;
+}
 .fs26{
     font-size: 0.346rem;
 }
@@ -208,6 +211,49 @@ a {
     vertical-align: middle;
     background-size: 5rem auto;
 }
+/*导航*/
+.i_index{
+    width: 0.65rem;
+    height: 0.65rem;
+    background-position: -2.12rem -3.14rem;
+}
+.nuxt-link-exact-active .i_index{
+    background-position: -2.12rem -3.98rem;
+}
+.i_find{
+    width: 0.65rem;
+    height: 0.65rem;
+    background-position: -4.17rem -3.14rem;
+}
+.nuxt-link-exact-active .i_find{
+    background-position: -4.17rem -3.98rem;
+}
+.i_serverMsg{
+    width: 0.65rem;
+    height: 0.65rem;
+    background-size: 6rem auto;
+    background-position: -2.35rem -12.74rem;
+}
+.nuxt-link-exact-active .i_serverMsg{
+    background-position: -5.33rem -27.33rem;
+}
+.i_shoppingCar{
+    width: 0.65rem;
+    height: 0.65rem;
+    background-position: -1.12rem -4.86rem;
+}
+.nuxt-link-exact-active .i_shoppingCar{
+    background-position: -1.1rem -3.96rem;
+}
+.i_mine{
+    width: 0.65rem;
+    height: 0.65rem;
+    background-position: -0.09rem -4.88rem;
+}
+.nuxt-link-exact-active .i_mine{
+    background-position: -0.08rem -3.96rem;
+}
+/*导航end*/
 .i_hot{
     width: 0.65rem;
     height: 0.65rem;
