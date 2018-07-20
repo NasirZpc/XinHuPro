@@ -162,9 +162,9 @@ export default {
             }
         }
     },
-    // middleware: 'auth',//前端路由鉴权
     scrollToTop:true,//判定渲染页面前是否需要将当前页面滚动至顶部
     methods:{
+        //上拉加载更多
         loadMore() {
             this.loadingMore = true
             setTimeout(()=>{
@@ -382,6 +382,7 @@ export default {
             }
             //猜你喜欢
             ul.guessLikeLists{
+                //上拉加载动画
                 li:last-child{
                     background: none;
                     width:100%;

@@ -29,6 +29,7 @@ export default{
             type:'',//0商品  1店铺
         }
     },
+    scrollToTop:true,
     methods:{
         go(){
             this.$router.go(-1);
