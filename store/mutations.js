@@ -1,5 +1,5 @@
 export default {
-    SET_TOGGLE:(state,toggle)=>{
-        state.toggle = toggle
-    }
+    // SET_SHOWFOOTER:(state,val)=>{
+    //     state.showFooter = val
+    // }
 }

@@ -4,8 +4,6 @@ import mutations from './mutations'
 import actions from './actions'
 const state = {
     token : '',
-    //未登录切换header
-    toggle : 0,
 }
 
 export default () => {

@@ -2,7 +2,7 @@
     <section class="indexWrap">
         <!-- 首页搜索 -->
         <div class="headerWrap fix">
-            <nuxt-link to="/about">
+            <nuxt-link to="/search">
                 <i class="fa fa-search" aria-hidden="true"></i>
                 <span class="Cf fs36">请输入关键字</span>
             </nuxt-link>
@@ -99,11 +99,13 @@
                     </nuxt-link>
                 </li>
                 <li class="more_loading" v-show="loadingMore">
-                    <mt-spinner type="snake" color="#ff5c00" :size="18" v-show="!allLoaded"></mt-spinner>
+                    <!-- <mt-spinner type="snake" color="#ff5c00" :size="18" v-show="!allLoaded"></mt-spinner> -->
+                    <img src="../assets/images/loading.gif" v-show="!allLoaded"/>
                     <span v-show="allLoaded">已全部加载</span>
                 </li>
             </ul>
         </div>
+        <Footer/>
     </section>
 </template>
 <script>
@@ -192,14 +194,6 @@ export default {
         background: #fff;
         /*首页头部*/
         .headerWrap{
-            background: url('../assets/images/header_bg.png') no-repeat;
-            background-size: 100% auto;
-            display: block;
-            width:100%;
-            height: 1.16rem;
-            z-index: 10;
-            left: 0;
-            top: 0;
             a{
                 text-align: center;
                 display:block;
@@ -397,6 +391,9 @@ export default {
                         display: block;
                         width:28px;
                         margin:0 auto;
+                    }
+                    >img{
+                        width:40px;
                     }
                 }
             }

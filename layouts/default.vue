@@ -3,7 +3,6 @@
         <div class="Wrapper">
             <nuxt/>
         </div>
-        <Footer/>
         <BackTop/>
     </div>
 </template>
@@ -11,7 +10,7 @@
 <script>
 
 export default {
-    
+
 }
 </script>
 
