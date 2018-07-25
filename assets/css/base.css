@@ -178,6 +178,9 @@ a {
 .C9{
     color:#999;
 }
+.orange{
+    color:#ff5c00;
+}
 /*backgrund-color*/
 .bgCf{
     background:#fff;
@@ -192,6 +195,9 @@ a {
 }
 .fs26{
     font-size: 0.346rem;
+}
+.fs28{
+    font-size: 0.373rem;
 }
 .fs30{
     font-size: 0.4rem;
@@ -294,5 +300,19 @@ a {
 }
 .headerWrap .backBtn i{
     font-size:0.8rem;
+    color:#fff;
+}
+.headerWrap .rightBtn{
+    position:absolute;
+    top:0.3rem;
+    right:0.25rem;
+    color:#fff;
+    font-size:0.4rem;
+}
+.headerWrap p{
+    text-align: center;
+    width:100%;
+    height: 100%;
+    line-height:1.16rem;
     color:#fff;
 }

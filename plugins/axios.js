@@ -6,10 +6,9 @@ var vm = new Vue({})
 export default function ({ $axios, redirect }) {
     $axios.onRequest(config => {
         config.headers.sign_time = '12333333'
-        // if (config.method === 'post') {
-        //     config.data = qs.stringify(config.data)
-        // }
-        // console.log(config)
+        if (config.method === 'post') {
+            config.data = qs.stringify(config.data)
+        }
         if (process.browser) {
             // vm.$loading()
         }

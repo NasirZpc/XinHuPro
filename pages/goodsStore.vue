@@ -14,7 +14,7 @@
 export default{
     head () {
         return {
-            title: '信户-商品&店铺列表',
+            title: '商品&店铺列表',
             meta: [
                 { hid: 'description', name: 'description', content: '搜索你喜欢的商品和店铺' }
             ]

@@ -1,8 +1,8 @@
-export default function({store,error,redirect,req}){
+export default function({store,error,redirect,req,route}){
+    console.log(route)
     if(!store.state.token){
-        console.log('未登录')
         redirect('/login')
-    }else{
-        console.log('已登录')
+    }else if(route.path == '/login'){
+        redirect('/')
     }
 }

@@ -1,5 +1,5 @@
 export default {
-    // SET_SHOWFOOTER:(state,val)=>{
-    //     state.showFooter = val
-    // }
+    SET_TOKEN:(state,val)=>{
+        state.token = val
+    }
 }

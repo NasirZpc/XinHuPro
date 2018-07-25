@@ -17,13 +17,17 @@
     "babel-preset-es2015": "^6.24.1",
     "cross-env": "^5.0.1",
     "koa": "^2.4.1",
+    "koa-bodyparser": "^3.2.0",
     "koa-cors": "0.0.16",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.8.2",
     "mint-ui": "^2.2.13",
     "nuxt": "latest",
     "postcss-loader": "^2.1.6",
     "postcss-px2rem": "^0.3.0",
     "qs": "^6.5.2",
     "source-map-support": "^0.4.15",
+    "superagent": "^3.8.3",
     "vue-awesome-swiper": "^3.1.3"
   },
   "devDependencies": {
