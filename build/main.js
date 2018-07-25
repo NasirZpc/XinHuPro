@@ -65,12 +65,11 @@ module.exports =
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ function(module, exports) {
 
 module.exports = {
@@ -142,72 +141,62 @@ module.exports = {
 };
 
 /***/ },
-
-/***/ 1:
+/* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(7);
+module.exports = __webpack_require__(9);
 
 
 /***/ },
-
-/***/ 15:
-/***/ function(module, exports) {
-
-module.exports = require("qs");
-
-/***/ },
-
-/***/ 2:
+/* 2 */
 /***/ function(module, exports) {
 
 module.exports = require("axios");
 
 /***/ },
-
-/***/ 3:
+/* 3 */
 /***/ function(module, exports) {
 
 module.exports = require("koa");
 
 /***/ },
-
-/***/ 4:
-/***/ function(module, exports) {
-
-module.exports = require("koa-cors");
-
-/***/ },
-
-/***/ 42:
+/* 4 */
 /***/ function(module, exports) {
 
 module.exports = require("koa-bodyparser");
 
 /***/ },
+/* 5 */
+/***/ function(module, exports) {
 
-/***/ 5:
+module.exports = require("koa-cors");
+
+/***/ },
+/* 6 */
 /***/ function(module, exports) {
 
 module.exports = require("koa-router");
 
 /***/ },
-
-/***/ 6:
+/* 7 */
 /***/ function(module, exports) {
 
 module.exports = require("nuxt");
 
 /***/ },
+/* 8 */
+/***/ function(module, exports) {
 
-/***/ 7:
+module.exports = require("qs");
+
+/***/ },
+/* 9 */
 /***/ function(module, exports) {
 
 module.exports = require("regenerator-runtime");
 
 /***/ },
-
-/***/ 8:
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -216,13 +205,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Users_zpc_Documents_XinhuProject_201807_XinHuWeb_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Users_zpc_Documents_XinhuProject_201807_XinHuWeb_node_modules_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_koa__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_koa___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_koa__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_nuxt__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_nuxt__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_nuxt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_nuxt__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_koa_bodyparser__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_koa_bodyparser__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_koa_bodyparser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_koa_bodyparser__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_koa_router__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_koa_router__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_koa_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_koa_router__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_qs__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_qs__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_qs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_qs__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_axios__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_axios__);
@@ -297,7 +286,7 @@ var start = function () {
                         app = new __WEBPACK_IMPORTED_MODULE_1_koa___default.a();
                         host = process.env.HOST || '127.0.0.1';
                         port = process.env.PORT || 3030;
-                        cors = __webpack_require__(4); //解决跨域
+                        cors = __webpack_require__(5); //解决跨域
 
                         router = new __WEBPACK_IMPORTED_MODULE_4_koa_router___default.a();
 
@@ -420,6 +409,5 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 start();
 
 /***/ }
-
-/******/ });
+/******/ ]);
 //# sourceMappingURL=main.map

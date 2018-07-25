@@ -1,4 +1,3 @@
-// import axios from 'axios'
 import {baseurl} from '~/plugins/url.js'
 export default{
     async nuxtServerInit ({ commit }, { req, res }) {
@@ -20,9 +19,9 @@ export default{
         try {
             let {data} = await this.$axios.post(`http://127.0.0.1:3030/api/login`,{ mobile, password })
             if(data){
-                commit('SET_TOKEN', data)    
-            }
+                commit('SET_TOKEN', data)
 
+            }
         } catch (error) {
             if (error.response && error.response.status === 401) {
                 throw new Error('Bad credentials')
