@@ -104,7 +104,6 @@ export default{
                   mobile: this.tel,
                   password: this.password,
                 })
-                console.log(data)
                 if(data.status == 1){
                     this.$toast({
                         message: '登录成功',
@@ -122,7 +121,6 @@ export default{
                     });
                 }
             } catch (e) {
-                console.log(e)
                 const _msg = e.message
                 this.$toast({
                     message: _msg,
