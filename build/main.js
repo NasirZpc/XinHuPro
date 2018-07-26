@@ -336,15 +336,17 @@ var start = function () {
                                                 postData = _context.sent;
                                                 _context.next = 7;
                                                 return __WEBPACK_IMPORTED_MODULE_6_axios___default.a.post('http://120.27.227.156:9004/index.php/Api/User/login', __WEBPACK_IMPORTED_MODULE_5_qs___default.a.stringify(postData)).then(function (res) {
-                                                    ctx.cookies.set('token', res.data.data.token, {
-                                                        domain: '127.0.0.1', // 写cookie所在的域名
-                                                        path: '/', // 写cookie所在的路径
-                                                        maxAge: 10 * 60 * 1000, // cookie有效时长
-                                                        // expires: new Date('2018-07-27'),  // cookie失效时间
-                                                        httpOnly: false, // 是否只用于http请求中获取
-                                                        overwrite: false // 是否允许重写
-                                                    });
-                                                    ctx.body = res.data.data.token;
+                                                    if (res.data.status == 1) {
+                                                        ctx.cookies.set('token', res.data.data.token, {
+                                                            domain: '127.0.0.1', // 写cookie所在的域名
+                                                            path: '/', // 写cookie所在的路径
+                                                            maxAge: 10 * 60 * 1000, // cookie有效时长
+                                                            // expires: new Date('2018-07-27'),  // cookie失效时间
+                                                            httpOnly: false, // 是否只用于http请求中获取
+                                                            overwrite: false // 是否允许重写
+                                                        });
+                                                    }
+                                                    ctx.body = res.data;
                                                 });
 
                                             case 7:

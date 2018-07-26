@@ -100,13 +100,27 @@ export default{
             }
             //登录方法
             try {
-                await this.$store.dispatch('login', {
+                var data = await this.$store.dispatch('login', {
                   mobile: this.tel,
                   password: this.password,
                 })
-                this.tel = ''
-                this.password = ''
-                this.$router.go(-1)
+                console.log(data)
+                if(data.status == 1){
+                    this.$toast({
+                        message: '登录成功',
+                        position: 'bottom',
+                        duration: 2000
+                    });
+                    this.$router.go(-1)
+                    this.tel = ''
+                    this.password = ''
+                }else{
+                    this.$toast({
+                        message: data.msg,
+                        position: 'bottom',
+                        duration: 2000
+                    });
+                }
             } catch (e) {
                 console.log(e)
                 const _msg = e.message

@@ -18,10 +18,10 @@ export default{
     async login({ commit }, { mobile, password }) {
         try {
             let {data} = await this.$axios.post(`http://127.0.0.1:3030/api/login`,{ mobile, password })
-            if(data){
-                commit('SET_TOKEN', data)
-
+            if(data.status == 1){
+                commit('SET_TOKEN', data.data.token)
             }
+            return data
         } catch (error) {
             if (error.response && error.response.status === 401) {
                 throw new Error('Bad credentials')

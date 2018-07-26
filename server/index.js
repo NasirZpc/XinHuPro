@@ -37,18 +37,20 @@ async function start () {
         if(ctx.url === '/api/login' && ctx.method === 'POST'){
             let postData = await parsePostData( ctx )
             await axios.post('http://120.27.227.156:9004/index.php/Api/User/login',qs.stringify(postData)).then(res=>{
-                ctx.cookies.set(
-                    'token',
-                    res.data.data.token,
-                    {
-                    domain: '127.0.0.1',  // 写cookie所在的域名
-                    path: '/',       // 写cookie所在的路径
-                    maxAge: 10 * 60 * 1000, // cookie有效时长
-                    // expires: new Date('2018-07-27'),  // cookie失效时间
-                    httpOnly: false,  // 是否只用于http请求中获取
-                    overwrite: false  // 是否允许重写
-                })
-                ctx.body = res.data.data.token
+                if(res.data.status==1){
+                    ctx.cookies.set(
+                        'token',
+                        res.data.data.token,
+                        {
+                        domain: '127.0.0.1',  // 写cookie所在的域名
+                        path: '/',       // 写cookie所在的路径
+                        maxAge: 10 * 60 * 1000, // cookie有效时长
+                        // expires: new Date('2018-07-27'),  // cookie失效时间
+                        httpOnly: false,  // 是否只用于http请求中获取
+                        overwrite: false  // 是否允许重写
+                    })
+                }
+                ctx.body = res.data
             })
         }else{
             return new Promise((resolve, reject) => {
