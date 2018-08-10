@@ -358,7 +358,7 @@ var start = function () {
                                                     ctx.res.on('close', resolve);
                                                     ctx.res.on('finish', resolve);
                                                     nuxt.render(ctx.req, ctx.res, function (promise) {
-                                                        // nuxt.render passes a rejected promise into callback on error.
+                                                        //nuxt.render passes a rejected promise into callback on error.
                                                         promise.then(resolve).catch(reject);
                                                     });
                                                 }));

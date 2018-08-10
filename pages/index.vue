@@ -101,7 +101,7 @@
                 <li class="more_loading" v-show="loadingMore">
                     <!-- <mt-spinner type="snake" color="#ff5c00" :size="18" v-show="!allLoaded"></mt-spinner> -->
                     <img src="../assets/images/loading.gif" v-show="!allLoaded"/>
-                    <span v-show="allLoaded">已全部加载</span>
+                    <span v-show="allLoaded" style="width:2rem;">已全部加载</span>
                 </li>
             </ul>
         </div>
@@ -162,7 +162,7 @@ export default {
             }
         }
     },
-    scrollToTop:true,//判定渲染页面前是否需要将当前页面滚动至顶部
+    scrollToTop:true,
     methods:{
         //上拉加载更多
         loadMore() {
