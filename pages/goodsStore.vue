@@ -69,10 +69,10 @@
                 v-show="!isActive"
             >
                 <li class="clearfix" v-for="(item,index) in storeListsData" :key="index">
-                    <nuxt-link to="/" class="block">
+                    <nuxt-link to="/" class="block clearfix rel">
                         <img v-lazy="item.shoppic" class="fl">
-                        <h4 classs="fl">{{item.shopname}}</h4>
-                        <span class="block rel fr">进店</span>
+                        <h4 class="fl">{{item.shopname}}</h4>
+                        <span class="block abs">进店</span>
                     </nuxt-link>
                 </li>
                 <li class="more_loading" v-show="loadingMoreStores">
@@ -96,38 +96,37 @@ export default{
         }
     },
     async asyncData({app}) {
-        // console.log(app)
         let isActive
         if(app.context.query.type == 0){
-            let goodsListsData
+
             //商品
             isActive =true
-            await app.$axios.post(`${baseurl}/index.php/Api/Product/getlist`,{productname:app.context.query.searchVal,pagesize:6,p:1}).then(res=>{
-                goodsListsData = res.data.data.prolist
-            }).catch(error=>{
-                this.$toast({
-                    message: error,
-                    position: 'bottom',
-                    duration: 2000
-                });
-            })
-            return {isActive,goodsListsData}
+            let goodsListsData
+            // await app.$axios.post(`${baseurl}/index.php/Api/Product/getlist`,{productname:app.context.query.searchVal,pagesize:6,p:1}).then(res=>{
+            //     goodsListsData = res.data.data.prolist
+            // }).catch(error=>{
+            //     this.$toast({
+            //         message: error,
+            //         position: 'bottom',
+            //         duration: 2000
+            //     });
+            // })
+            return {isActive}
         }else{
-            let storeListsData
             //店铺
             isActive =false
-            await app.$axios.post(`${baseurl}/index.php/Api/Shop/searchshop`,{shopname:app.context.query.searchVal,pagesize:10,p:1}).then(res=>{
-                storeListsData = res.data.data
-            }).catch(error=>{
-                this.$toast({
-                    message: error,
-                    position: 'bottom',
-                    duration: 2000
-                });
-            })
-            return {isActive,storeListsData}
+            let storeListsData
+            // await app.$axios.post(`${baseurl}/index.php/Api/Shop/searchshop`,{shopname:app.context.query.searchVal,pagesize:10,p:1}).then(res=>{
+            //     storeListsData = res.data.data
+            // }).catch(error=>{
+            //     this.$toast({
+            //         message: error,
+            //         position: 'bottom',
+            //         duration: 2000
+            //     });
+            // })
+            return {isActive}
         }
-
     },
     data(){
         return {
@@ -139,10 +138,10 @@ export default{
             allLoadedGoods:false,
             allLoadedStores:false,
             goodsPagesize:6,
-            goodsPage:2,
+            goodsPage:1,
             goodsListsData:[],
             storePagesize:10,
-            storePage:2,
+            storePage:1,
             storeListsData:[],
             //加载更多
             loadingMoreGoods:false,
@@ -169,8 +168,10 @@ export default{
         tabFunc(){
             this.isActive = !this.isActive
             if(this.isActive && this.goodsListsData.length == 0){
+                this.goodsPage = 1
                 this.loadMoreGoods()
             }else if(!this.isActive && this.storeListsData.length == 0){
+                this.storePage = 1
                 this.loadMoreStores()
             }
         },
@@ -208,8 +209,8 @@ export default{
         //上拉加载更多
         //加载更多商品
         loadMoreGoods() {
-            this.loadingMoreGoods = true
             if(this.isActive){
+                this.loadingMoreGoods = true
                 setTimeout(()=>{
                     this.$axios.post(`${baseurl}/index.php/Api/Product/getlist`,{productname:this.searchVal,pagesize:this.goodsPagesize,p:this.goodsPage,token:this.$store.getters.token,sort:this.sort}).then(res=>{
                         if(res.data.data.prolist && res.data.data.prolist.length){
@@ -218,11 +219,14 @@ export default{
                             }
                             this.loadingMoreGoods = false
                             this.goodsPage++
+                            if(res.data.data.prolist.length<this.goodsPagesize){
+                                this.loadingMoreGoods = true
+                                this.allLoadedGoods = true
+                            }
                         }else{
                             this.loadingMoreGoods = true
                             this.allLoadedGoods = true
                         }
-
                     }).catch(error=>{
                         this.$toast({
                             message: error,
@@ -236,8 +240,8 @@ export default{
         },
         //上拉加载店铺
         loadMoreStores() {
-            this.loadingMoreStores = true
             if(!this.isActive){
+                this.loadingMoreStores = true
                 setTimeout(()=>{
                     this.$axios.post(`${baseurl}/index.php/Api/Shop/searchshop`,{shopname:this.searchVal,pagesize:this.storePagesize,p:this.storePage}).then(res=>{
                         if(res.data.data && res.data.data.length){
@@ -246,11 +250,14 @@ export default{
                             }
                             this.loadingMoreStores = false
                             this.storePage++
+                            if(res.data.data.length<this.storePagesize){
+                                this.loadingMoreStores = true
+                                this.allLoadedStores = true
+                            }
                         }else{
                             this.loadingMoreStores = true
                             this.allLoadedStores = true
                         }
-
                     }).catch(error=>{
                         this.$toast({
                             message: error,
@@ -306,11 +313,11 @@ export default{
     .goodsStoreContent{
         ul.tab{
             background: #fff;
-            border-bottom:1px solid #eee;
             width:100%;
             top:1.15rem;
             left:0;
             z-index:1;
+            box-shadow: 0px 5px 10px #999;
             li{
                 width: 50%;
                 height: 16px;
@@ -377,7 +384,7 @@ export default{
         }
         ul.goodsLists{
             background: #f4f4f4;
-            top:2.08rem;
+            top:2.1rem;
             left:0;
             position: relative;
             li{
@@ -424,11 +431,14 @@ export default{
                     width:100%;
                     text-align: center;
                     margin-left:0;
+                    margin-bottom:0;
                     span{
                         text-align: center;
                         display: block;
                         width:28px;
                         margin:0 auto;
+                        height:1rem;
+                        line-height: 1rem;
                     }
                     >img{
                         width:40px;
@@ -438,24 +448,33 @@ export default{
         }
         ul.storeLists{
             position:relative;
-            top:1.15rem;
+            top:1.35rem;
             left:0;
             width:100%;
             li{
                 a{
+                    padding:0.25rem;
+                    background: #fff;
                     >img{
-                        width:1rem;
-                        height:1rem;
+                        width:1.4rem;
+                        height:1.4rem;
                         border-radius: 3px;
                     }
                     >h4{
                         font-size:0.427rem;
                         color:#666;
+                        margin-left:0.25rem;
                     }
                     >span{
                         width:1.4rem;
-                        height:0.8rem;
-                        line-height: 0.8rem;
+                        height:0.7rem;
+                        line-height: 0.7rem;
+                        text-align: center;
+                        border:1px solid #ff5c00;
+                        color:#ff5c00;
+                        border-radius:0.8rem;
+                        top:0.25rem;
+                        right:0.25rem;
                     }
                 }
                 &:last-child{
@@ -463,11 +482,14 @@ export default{
                     width:100%;
                     text-align: center;
                     margin-left:0;
+                    margin-bottom:0;
                     span{
                         text-align: center;
                         display: block;
                         width:28px;
                         margin:0 auto;
+                        height:1rem;
+                        line-height: 1rem;
                     }
                     >img{
                         width:40px;
