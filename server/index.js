@@ -39,8 +39,8 @@ async function start () {
             await axios.post('http://120.27.227.156:9004/index.php/Api/User/login',qs.stringify(postData)).then(res=>{
                 if(res.data.status==1){
                     ctx.cookies.set(
-                        'token',
-                        res.data.data.token,
+                        'userinfo',
+                        qs.stringify(res.data.data),
                         {
                         domain: '127.0.0.1',  // 写cookie所在的域名
                         path: '/',       // 写cookie所在的路径

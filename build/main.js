@@ -94,7 +94,7 @@ module.exports = {
     /*
     ** Customize the progress-bar color
     */
-    loading: { color: '#ff5c00' },
+    loading: { color: '#fff' },
 
     /*
     ** Build configuration
@@ -337,7 +337,7 @@ var start = function () {
                                                 _context.next = 7;
                                                 return __WEBPACK_IMPORTED_MODULE_6_axios___default.a.post('http://120.27.227.156:9004/index.php/Api/User/login', __WEBPACK_IMPORTED_MODULE_5_qs___default.a.stringify(postData)).then(function (res) {
                                                     if (res.data.status == 1) {
-                                                        ctx.cookies.set('token', res.data.data.token, {
+                                                        ctx.cookies.set('userinfo', __WEBPACK_IMPORTED_MODULE_5_qs___default.a.stringify(res.data.data), {
                                                             domain: '127.0.0.1', // 写cookie所在的域名
                                                             path: '/', // 写cookie所在的路径
                                                             maxAge: 10 * 60 * 1000, // cookie有效时长

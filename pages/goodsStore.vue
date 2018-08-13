@@ -3,7 +3,7 @@
         <!-- 头部搜索 -->
         <div class="headerWrap fix">
             <a href="javascript:" @click="go()" class="backBtn"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
-            <div class="rel">
+            <div class="rel" @click="go()">
                 <i class="fa fa-search" aria-hidden="true"></i>
                 <input placeholder="请输入搜索内容" v-model="searchVal" disabled>
             </div>
@@ -212,7 +212,7 @@ export default{
             if(this.isActive){
                 this.loadingMoreGoods = true
                 setTimeout(()=>{
-                    this.$axios.post(`${baseurl}/index.php/Api/Product/getlist`,{productname:this.searchVal,pagesize:this.goodsPagesize,p:this.goodsPage,token:this.$store.getters.token,sort:this.sort}).then(res=>{
+                    this.$axios.post(`${baseurl}/index.php/Api/Product/getlist`,{productname:this.searchVal,pagesize:this.goodsPagesize,p:this.goodsPage,token:this.$store.getters.userinfo.token,sort:this.sort}).then(res=>{
                         if(res.data.data.prolist && res.data.data.prolist.length){
                             for(var i=0;i<res.data.data.prolist.length;i++){
                                 this.goodsListsData.push(res.data.data.prolist[i])

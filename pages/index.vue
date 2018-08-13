@@ -168,7 +168,7 @@ export default {
         loadMore() {
             this.loadingMore = true
             setTimeout(()=>{
-                this.$axios.post(`${baseurl}/index.php/User/guesslike`,{pagesize:this.pagesize,p:this.page,token:this.$store.getters.token}).then(res=>{
+                this.$axios.post(`${baseurl}/index.php/User/guesslike`,{pagesize:this.pagesize,p:this.page,token:this.$store.getters.userinfo.token}).then(res=>{
                     if(res.data.data.guesslist && res.data.data.guesslist.length){
                         for(var i=0;i<res.data.data.guesslist.length;i++){
                             this.guesslikeData.push(res.data.data.guesslist[i])

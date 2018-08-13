@@ -4,7 +4,7 @@ import mutations from './mutations'
 import actions from './actions'
 require('whatwg-fetch')
 const state = {
-    token : '',
+    userinfo : '',
 }
 
 export default () => {

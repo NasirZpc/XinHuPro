@@ -1,5 +1,5 @@
 export default {
-    SET_TOKEN:(state,val)=>{
-        state.token = val
+    SET_USERINFO:(state,val)=>{
+        state.userinfo = val
     }
 }
