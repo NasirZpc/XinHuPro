@@ -65,30 +65,35 @@
         </div>
         <ul class="clearfix mineOrder">
             <li class="fl rel">
+                <span class="num abs block" v-if="mineData.nopay!=0">{{mineData.nopay}}</span>
                 <nuxt-link to="/" class="block tc">
                     <i class="icon i_order1"></i>
                     <p class="tc fs26 C6">待付款</p>
                 </nuxt-link>
             </li>
             <li class="fl rel">
+                <span class="num abs block" v-if="mineData.nodeliver!=0">{{mineData.nodeliver}}</span>
                 <nuxt-link to="/" class="block tc">
                     <i class="icon i_order2"></i>
                     <p class="tc fs26 C6">待发货</p>
                 </nuxt-link>
             </li>
             <li class="fl rel">
+                <span class="num abs block" v-if="mineData.nobedeliver!=0">{{mineData.nobedeliver}}</span>
                 <nuxt-link to="/" class="block tc">
                     <i class="icon i_order3"></i>
                     <p class="tc fs26 C6">待收货</p>
                 </nuxt-link>
             </li>
             <li class="fl rel">
+                <span class="num abs block" v-if="mineData.nomark!=0">{{mineData.nomark}}</span>
                 <nuxt-link to="/" class="block tc">
                     <i class="icon i_order4"></i>
                     <p class="tc fs26 C6">待评价</p>
                 </nuxt-link>
             </li>
             <li class="fl rel">
+                <span class="num abs block" v-if="mineData.refund!=0">{{mineData.refund}}</span>
                 <nuxt-link to="/" class="block tc">
                     <i class="icon i_order5"></i>
                     <p class="tc fs26 C6">退货/退款</p>
@@ -310,6 +315,18 @@ export default{
         margin-bottom:0.26rem;
         li{
             width:20%;
+            span.num{
+                border: 1px solid #ff5c00;
+                width: 0.35rem;
+                height: 0.35rem;
+                line-height: 0.35rem;
+                top: 0.23rem;
+                right: 0.5rem;
+                border-radius: 50%;
+                color:#ff5c00;
+                text-align: center;
+                background: #fff;
+            }
             a{
                 padding: 0.2rem 0;
                 i{
