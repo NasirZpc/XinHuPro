@@ -143,7 +143,7 @@ export default {
             app.$axios.get(`${baseurl}/index.php/Product/getspecial`),//获取专题列表
             app.$axios.get(`${baseurl}/index.php/Product/evboybuy`),//大家都在买
             app.$axios.post(`${baseurl}/index.php/Api/Shop/shoplist`,{isindex:1,pagesize:4,p:1}),//店铺推荐
-            app.$axios.post(`${baseurl}/index.php/User/guesslike`,{pagesize:6,p:1,token:app.store.getters.token}),//猜你喜欢
+            app.$axios.post(`${baseurl}/index.php/User/guesslike`,{pagesize:6,p:1,token:app.store.getters.userinfo.token}),//猜你喜欢
         ])
         let banners = bannerRes.data.data.banner
         let assortData = assortRes.data.data
