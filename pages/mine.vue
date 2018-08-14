@@ -1,7 +1,10 @@
 <template>
     <section class="MineWrap">
+        <header id="header" class="fix tc Cf fs34">
+            <p v-show="isShow">{{userinfo.user_nicename}}</p>
+        </header>
+        <nuxt-link to="/" class="fa fa-cog fix" aria-hidden="true"></nuxt-link>
         <div class="MineTop rel">
-            <nuxt-link to="/" class="fa fa-cog abs" aria-hidden="true"></nuxt-link>
             <div class="headerImg rel">
                 <img class="rel block" v-lazy="userinfo.avatar">
             </div>
@@ -145,25 +148,62 @@ export default{
         })
         return {mineData}
     },
+    data(){
+        return {
+            isShow: false,
+        }
+    },
     computed:{
         ...mapGetters(['userinfo']),
     },
+    methods:{
+        headerFunc(){
+            if(process.browser) {	//判断为浏览器
+                window.onscroll = ()=> {
+                    let scrollTop = document.documentElement.scrollTop
+                    var opcaity=(scrollTop/100>1)?1:scrollTop/75
+                    document.getElementById('header').style.background='rgba(255,92,0,'+opcaity+')'
+                    if(scrollTop>0){
+                        this.isShow = true
+                    }else{
+                        this.isShow = false
+                    }
+                }
+            }
+        }
+    },
+    mounted() {
+        this.$nextTick(() => {
+            this.headerFunc()
+        })
+	},
 }
 </script>
 <style lang="scss" scoped>
 .MineWrap{
+    header{
+        height:1.16rem;
+        // background:#ff5c00;
+        width:100%;
+        top:0;
+        left:0;
+        z-index:2;
+        line-height: 1.16rem;
+    }
+    a{
+        &.fa-cog{
+            color:#fff;
+            font-size:0.6rem;
+            top:0.3rem;
+            right:0.25rem;
+            z-index:3;
+        }
+    }
     .MineTop{
         background: url('../assets/images/mineTop_bg.png') no-repeat;
         height:5.2rem;
         background-size: 100% 100%;
-        a{
-            &.fa-cog{
-                color:#fff;
-                font-size:0.6rem;
-                top:0.25rem;
-                right:0.25rem;
-            }
-        }
+
         .headerImg{
             width: 2.827rem;
             height: 2.827rem;
