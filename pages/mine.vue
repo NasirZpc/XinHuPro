@@ -5,9 +5,9 @@
         </header>
         <nuxt-link to="/" class="fa fa-cog fix" aria-hidden="true"></nuxt-link>
         <div class="MineTop rel">
-            <div class="headerImg rel">
+            <nuxt-link to="/mineInfoManage" class="headerImg rel block">
                 <img class="rel block" v-lazy="userinfo.avatar">
-            </div>
+            </nuxt-link>
             <h4 class="nickName fs30 rel Cf tc">{{userinfo.user_nicename}}</h4>
             <nuxt-link to="/" class="block signBtn fs24 abs Cf">签到有礼<i class="fa fa-angle-right rel" aria-hidden="true"></i></nuxt-link>
         </div>
@@ -102,7 +102,7 @@
         </ul>
         <ul class="mineToolNav">
             <li>
-                <nuxt-link to="/" class="block clearfix">
+                <nuxt-link to="/mineInfoManage" class="block clearfix">
                     <i class="icon mineInfo rel fl"></i>
                     <h4 class="C6 fs28 fl">个人信息修改</h4>
                     <i class="fa fa-angle-right rel fr C9" aria-hidden="true"></i>

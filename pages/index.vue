@@ -304,6 +304,7 @@ export default {
                     margin-bottom:0.2rem;
                     // box-shadow:0px 5px 10px #eee;
                     background: #fff;
+                    height:7.57rem;
                     a{
                         display: block;
                         img{
@@ -314,13 +315,21 @@ export default {
                             border:1px solid #f3f1f1;
                             border-top:none;
                             padding:0.2rem 0.226rem;
+                            height:2.3rem;
+                            position: relative;
                             >p{
-                                margin-top:0.1rem;
+                                // margin-top:0.1rem;
                                 font-size:0.3rem;
                                 color:#999;
+                                position:absolute;
+                                width:4.5rem;
+                                bottom:0.8rem;
                             }
                             >div{
                                 margin-top:0.1rem;
+                                position:absolute;
+                                width:4.5rem;
+                                bottom:0.2rem;
                                 p{
                                     float: left;
                                     font-size:0.4rem;
