@@ -396,6 +396,7 @@ export default {
                     background: none;
                     width:100%;
                     text-align: center;
+                    height:auto;
                     span{
                         text-align: center;
                         display: block;
