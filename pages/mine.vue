@@ -167,7 +167,11 @@ export default{
                 window.onscroll = ()=> {
                     let scrollTop = document.documentElement.scrollTop
                     var opcaity=(scrollTop/100>1)?1:scrollTop/75
-                    document.getElementById('header').style.background='rgba(255,92,0,'+opcaity+')'
+                    try{
+                        document.getElementById('header').style.background='rgba(255,92,0,'+opcaity+')'
+                    }catch(err){
+                        // console.log(err)
+                    }
                     if(scrollTop>0){
                         this.isShow = true
                     }else{
