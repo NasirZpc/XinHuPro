@@ -216,6 +216,12 @@ a {
     padding-top:1.15rem;
 }
 
+/*margin*/
+.ml025{
+    margin-left:0.25rem;
+}
+
+
 /*icon*/
 .icon{
     background: url(../images/icon.png) no-repeat;
